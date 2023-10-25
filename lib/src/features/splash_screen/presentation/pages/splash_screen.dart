@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -36,7 +37,6 @@ class SplashScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  
                 ),
                 const Spacer(),
                 Align(
@@ -55,7 +55,7 @@ class SplashScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Add the action you want to perform when the button is pressed.
+                      context.go('/login_screen');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,

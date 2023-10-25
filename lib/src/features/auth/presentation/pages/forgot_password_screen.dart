@@ -4,16 +4,15 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
-  bool _obscureText = true;
 
   String? _emailValidator(String? value) {
     if (value == null || value.isEmpty) {
@@ -22,13 +21,6 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
         .hasMatch(value)) {
       return 'Please enter a valid email';
-    }
-    return null;
-  }
-
-  String? _passwordValidator(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter your password';
     }
     return null;
   }
@@ -45,12 +37,9 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                //SvgPicture.asset('assets/logo/logo.svg'),
-                SizedBox(height: 16.h),
                 Text(
-                  'Welcome back!',
+                  'Forgot Password',
                   style: GoogleFonts.poppins(
-                    // Apply Google Fonts Poppins
                     textStyle:
                         Theme.of(context).textTheme.headlineMedium?.copyWith(
                               fontWeight: FontWeight.w600,
@@ -60,9 +49,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 10.h),
                 Text(
-                  'Please login to access and start saving',
+                  'Enter your email to reset your password',
                   style: GoogleFonts.poppins(
-                    // Apply Google Fonts Poppins
                     textStyle: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ),
@@ -75,70 +63,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         'Email',
                         style: GoogleFonts.poppins(
-                          // Apply Google Fonts Poppins
                           textStyle: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
                       SizedBox(height: 3.h),
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
+                        textInputAction: TextInputAction.done,
                         decoration: InputDecoration(
                           hintText: 'Enter your email',
-                          hintStyle: GoogleFonts
-                              .poppins(), // Apply Google Fonts Poppins
+                          hintStyle: GoogleFonts.poppins(),
                         ),
                         validator: _emailValidator,
                       ),
                       SizedBox(height: 24.h),
-                      Text(
-                        'Password',
-                        style: GoogleFonts.poppins(
-                          // Apply Google Fonts Poppins
-                          textStyle: Theme.of(context).textTheme.titleSmall,
-                        ),
-                      ),
-                      SizedBox(height: 3.h),
-                      TextFormField(
-                        obscureText: _obscureText,
-                        decoration: InputDecoration(
-                          hintText: 'Enter your password',
-                          hintStyle: GoogleFonts
-                              .poppins(), // Apply Google Fonts Poppins
-                          suffixIcon: IconButton(
-                            icon: Icon(_obscureText
-                                ? Icons.visibility_off
-                                : Icons.visibility),
-                            onPressed: () {
-                              setState(() {
-                                _obscureText = !_obscureText;
-                              });
-                            },
-                          ),
-                        ),
-                        validator: _passwordValidator,
-                      ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {
-                            context.push('/forgot_password_screen');
-                          },
-                          child: Text(
-                            'Forgot password?',
-                            style: GoogleFonts.poppins(
-                              // Apply Google Fonts Poppins
-                              textStyle: const TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
+                    if (_formKey.currentState!.validate()) {
+                      // Implement the forgot password logic here
+                    }
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.amber),
@@ -146,9 +92,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         MaterialStateProperty.all(Size(double.infinity, 48.h)),
                   ),
                   child: Text(
-                    'Log in',
+                    'Reset Password',
                     style: GoogleFonts.poppins(
-                        // Apply Google Fonts Poppins
                         textStyle: TextStyle(
                       color: Colors.white,
                       fontSize: ScreenUtil().setSp(16),
@@ -158,21 +103,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 16.h),
                 RichText(
                   text: TextSpan(
-                    text: "Don't have an account? ",
+                    text: "Remember your password? ",
                     style: GoogleFonts.poppins(
-                      // Apply Google Fonts Poppins
                       textStyle: const TextStyle(color: Colors.white),
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Sign up',
+                        text: 'Log in',
                         style: GoogleFonts.poppins(
-                          // Apply Google Fonts Poppins
                           textStyle: const TextStyle(color: Colors.amber),
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            context.push('/signup_screen');
+                            context.go('/login_screen');
                           },
                       ),
                     ],
