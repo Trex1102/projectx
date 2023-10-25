@@ -1,69 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
-import '../../../auth/presentation/pages/login_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double topPadding = screenHeight / 2;
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.black,
-              // image: DecorationImage(
-              //   image: AssetImage('assets/images/bg_image.png'),
-              //   fit: BoxFit.cover,
-              // ),
-            ),
-          ),
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.transparent, Color(0xFF111122)],
-              ),
-            ),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SvgPicture.asset('assets/logo/Logo_white.svg'),
-                  const Spacer(flex: 14),
-                  const Text(
-                    'Anything you want, just right here at all.',
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white, 
+      body: Container(
+        color: Colors.black,
+        child: Padding(
+          padding:
+              EdgeInsets.only(left: 23.w, right: 23.w, bottom: 23.w, top: 23.w),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: (topPadding - 300).h),
+                Image.asset(
+                  'assets/logo/logo512.png', // Add your splash screen image asset path
+                  width: 200.w,
+                  height: 200.h,
+                ),
+                SizedBox(height: 200.h),
+                Center(
+                  child: Text(
+                    'Your on the go, friendly \n expense tracker',
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: ScreenUtil().setSp(26),
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  
+                ),
+                const Spacer(),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Fintracker is here to save your money',
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        color: Colors.white.withOpacity(0.8),
+                      ),
                     ),
                   ),
-                  const Spacer(flex: 1),
-                  Text(
-                    'Hedon is available to complete your needs but can save your money too',
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
-                    ),
-                  ),
-                  const Spacer(flex: 2),
-                  ElevatedButton(
+                ),
+                SizedBox(height: 3.h),
+                Align(
+                  alignment: Alignment.center,
+                  child: ElevatedButton(
                     onPressed: () {
-                      context.push('/login_screen');
+                      // Add the action you want to perform when the button is pressed.
                     },
-                    child: const Text("Get Started"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.amber,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 25.w, vertical: 10.h),
+                      // Adjust the button size as needed
+                    ),
+                    child: Text(
+                      'Get Started',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: ScreenUtil().setSp(16),
+                          color: Colors.white.withOpacity(1),
+                        ),
+                      ),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

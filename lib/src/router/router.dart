@@ -13,7 +13,7 @@ final router = GoRouter(
           // this is the initial page
           name: 'splash screen',
           path: '/splash_screen',
-          builder: (context, state) => const SplashScreen()),
+          builder: (context, state) => SplashScreen()),
       GoRoute(
           // this is the initial page
           name: 'login screen',
