@@ -58,7 +58,7 @@ class SplashScreen extends StatelessWidget {
                       context.go('/login_screen');
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.amber,
+                      backgroundColor: Colors.blue,
                       padding: EdgeInsets.symmetric(
                           horizontal: 25.w, vertical: 10.h),
                       // Adjust the button size as needed

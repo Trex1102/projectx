@@ -141,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (_formKey.currentState!.validate()) {}
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.amber),
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
                     minimumSize:
                         MaterialStateProperty.all(Size(double.infinity, 48.h)),
                   ),
@@ -168,11 +168,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         text: 'Sign up',
                         style: GoogleFonts.poppins(
                           // Apply Google Fonts Poppins
-                          textStyle: const TextStyle(color: Colors.amber),
+                          textStyle: const TextStyle(color: Colors.blue),
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            context.push('/signup_screen');
+                            //context.push('/signup_screen');
+                            context.go('/home');
                           },
                       ),
                     ],
