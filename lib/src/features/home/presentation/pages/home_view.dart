@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -13,8 +14,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
-        title: const Text("Home"),
+        backgroundColor: Colors.transparent,
       ),
       body: SizedBox(
         width: double.infinity,
@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
             MaterialButton(
               color: Colors.redAccent,
               onPressed: () {
-                
+                context.push('/add_expense_screen');
               },
               child: const Text(
                 "Navigate To Sub Home View",

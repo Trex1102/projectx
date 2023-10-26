@@ -14,9 +14,7 @@ class CategoryBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Initialize screenutil
-    ScreenUtil.init(
-      context,
-    );
+    
 
     return Container(
       height: 0.4.sh, // Use screenutil to adapt to screen height
@@ -38,7 +36,7 @@ class CategoryBottomSheet extends StatelessWidget {
             child: Icon(
               category.icon,
               size: 48.sp, // Use screenutil for icon size
-              color: Colors.black,
+              color: Colors.white,
             ),
           );
         },

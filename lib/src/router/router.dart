@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projectx/src/features/add_expense/presentation/pages/add_expense_screen.dart';
 import 'package:projectx/src/features/auth/presentation/pages/forgot_password_screen.dart';
 import 'package:projectx/src/features/auth/presentation/pages/login_screen.dart';
 import 'package:projectx/src/features/auth/presentation/pages/signup_screen.dart';
@@ -11,24 +12,19 @@ import 'package:go_router/go_router.dart';
 import 'package:projectx/src/features/statistics/presentation/pages/statistics_view.dart';
 import 'package:projectx/src/features/wrapper/main_wrapper.dart';
 
-
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _shellNavigatorHome =
-      GlobalKey<NavigatorState>(debugLabel: 'shellHome');
+final _shellNavigatorHome = GlobalKey<NavigatorState>(debugLabel: 'shellHome');
 final _shellNavigatorSettings =
-      GlobalKey<NavigatorState>(debugLabel: 'shellSettings');
+    GlobalKey<NavigatorState>(debugLabel: 'shellSettings');
 final _shellNavigatorStatistics =
-      GlobalKey<NavigatorState>(debugLabel: 'shellStatistics');
-
+    GlobalKey<NavigatorState>(debugLabel: 'shellStatistics');
 
 final router = GoRouter(
     debugLogDiagnostics: true,
     initialLocation: '/',
     routerNeglect: true,
     navigatorKey: _rootNavigatorKey,
-
     routes: [
-
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return MainWrapper(
@@ -41,11 +37,10 @@ final router = GoRouter(
             navigatorKey: _shellNavigatorHome,
             routes: <RouteBase>[
               GoRoute(
-                path: "/home",
-                name: "Home",
-                builder: (BuildContext context, GoRouterState state) =>
-                  HomeView()
-              ),
+                  path: "/home",
+                  name: "Home",
+                  builder: (BuildContext context, GoRouterState state) =>
+                      HomeView()),
             ],
           ),
 
@@ -113,7 +108,6 @@ final router = GoRouter(
           ),
         ],
       ),
-
       GoRoute(
           // this is the initial page
           name: 'splash screen',
@@ -131,4 +125,9 @@ final router = GoRouter(
           name: 'forgot password screen',
           path: '/forgot_password_screen',
           builder: (context, state) => const ForgotPasswordScreen()),
+      GoRoute(
+          // this is the initial page
+          name: 'add expense screen',
+          path: '/add_expense_screen',
+          builder: (context, state) => AddExpenseScreen()),
     ]);

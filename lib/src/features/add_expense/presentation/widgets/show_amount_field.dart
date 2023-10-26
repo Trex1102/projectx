@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ShowAmountField extends StatelessWidget {
   final String amount;
@@ -30,7 +31,7 @@ class ShowAmountField extends StatelessWidget {
           onChanged: onCurrencyChanged,
           iconSize: 35.sp, // Use screenutil for icon size
           underline: Container(),
-          dropdownColor: Colors.white,
+          dropdownColor: Colors.black,
           icon: const Icon(
             Icons.arrow_drop_down, // Use the built-in dropdown arrow icon
             color: Colors.black, // Set the arrow color to amber
@@ -38,10 +39,11 @@ class ShowAmountField extends StatelessWidget {
         ),
         Text(
           amount,
-          style: TextStyle(
-            fontSize: 50.sp, // Use screenutil for font size
-            fontWeight: FontWeight.bold,
-            fontFamily: 'MPlusRounded1C',
+          style: GoogleFonts.poppins( // Apply the "Poppins" font
+            textStyle: TextStyle(
+              fontSize: 45.sp, // Use screenutil for font size
+              
+            ),
           ),
         ),
       ],
@@ -82,7 +84,7 @@ class ShowAmountField extends StatelessWidget {
     // Load the icon as an Image widget
     return Image.asset(
       iconPath,
-      color: Colors.black, // Customize the icon color as needed
+      color: Colors.white, // Customize the icon color as needed
       width: 40.sp, // Use screenutil for icon size
       height: 40.sp, // Use screenutil for icon size
     );

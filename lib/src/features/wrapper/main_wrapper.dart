@@ -60,14 +60,14 @@ class _MainWrapperState extends State<MainWrapper> {
               ),
               GButton(
                 icon: Icons.pie_chart,
-                text: 'Likes',
+                text: 'Statistics',
                 textStyle: GoogleFonts.poppins(
                   textStyle: TextStyle(fontSize: 14.sp), 
                 ),
               ),
               GButton(
                 icon: Icons.settings,
-                text: 'Profile',
+                text: 'Settings',
                 textStyle: GoogleFonts.poppins(
                   textStyle: TextStyle(fontSize: 14.sp),
                 ),

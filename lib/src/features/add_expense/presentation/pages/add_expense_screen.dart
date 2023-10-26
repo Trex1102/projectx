@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart'; // Import the package
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widgets/add_note_textfield.dart';
 import '../widgets/numpad_widget.dart';
 import '../widgets/show_amount_field.dart';
@@ -29,7 +30,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
 
     return Scaffold(
       extendBody: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
@@ -38,7 +39,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
         elevation: 0,
         surfaceTintColor: Colors.transparent,
         leading: BackButton(
-          color: Colors.black,
+          color: Colors.white,
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -49,11 +50,11 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
           children: [
             Text(
               "New Expense",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18.sp, // Use screenutil to adapt font size
-                fontFamily: 'MPlusRounded1c',
-                fontWeight: FontWeight.bold
+              style: GoogleFonts.poppins( // Apply the "Poppins" font
+                textStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.sp, // Use screenutil to adapt font size
+                ),
               ),
             ),
           ],
@@ -90,7 +91,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
               child: Icon(
                 Icons.check_circle,
                 size: 60.sp, // Use screenutil to adapt icon size
-                color: Colors.amber,
+                color: Colors.blue,
               ),
             ),
           ),
@@ -107,18 +108,18 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
               ),
               label: Text(
                 selectedCategory?.name ?? "Category",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'MPlusRounded1c',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14.sp, // Use screenutil to adapt font size
+                style: GoogleFonts.poppins( // Apply the "Poppins" font
+                  textStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14.sp, // Use screenutil to adapt font size
+                  ),
                 ),
               ),
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
-                backgroundColor: Colors.amber,
+                backgroundColor: Colors.blue,
               ),
             ),
           ),
@@ -173,10 +174,4 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
       },
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: AddExpenseScreen(),
-  ));
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart'; // Import the Google Fonts package
 
 class NumpadWidget extends StatefulWidget {
   final Function(String) onKeyPressed;
@@ -91,16 +92,17 @@ class _NumpadWidgetState extends State<NumpadWidget> {
           width: 100.w, // Use screenutil
           height: 60.h, // Use screenutil
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.amber, width: 1),
+            border: Border.all(color: Colors.blue, width: 1),
             borderRadius: BorderRadius.circular(25.w), // Use screenutil
-            color: pressedNumber == number ? Colors.amber : Colors.transparent,
+            color: pressedNumber == number ? Colors.blue : Colors.black,
           ),
           child: Center(
             child: Text(
               number,
-              style: TextStyle(
-                fontFamily: 'MPlusRounded1C',
-                fontSize: 40.sp, // Use screenutil
+              style: GoogleFonts.poppins( // Apply the "Poppins" font
+                textStyle: TextStyle(
+                  fontSize: 40.sp, // Use screenutil
+                ),
               ),
             ),
           ),
@@ -118,7 +120,7 @@ class _NumpadWidgetState extends State<NumpadWidget> {
         onTap: () {
           setState(() {
             pressedNumber = 'backspace';
-          });
+        });
           Future.delayed(Duration(milliseconds: 12), () {
             setState(() {
               pressedNumber = null; // Reset the pressedNumber
@@ -132,12 +134,12 @@ class _NumpadWidgetState extends State<NumpadWidget> {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.white, width: 1),
             borderRadius: BorderRadius.circular(25.w), // Use screenutil
-            color: pressedNumber == 'backspace' ? Colors.white : Colors.amber,
+            color: pressedNumber == 'backspace' ? Colors.white : Colors.blue,
           ),
           child: Center(
             child: Icon(
               Icons.backspace,
-              color: pressedNumber == 'backspace' ? Colors.amber : Colors.black,
+              color: pressedNumber == 'backspace' ? Colors.blue : Colors.black,
               size: 40.sp, // Use screenutil
             ),
           ),
