@@ -134,12 +134,12 @@ class _NumpadWidgetState extends State<NumpadWidget> {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.white, width: 1),
             borderRadius: BorderRadius.circular(25.w), // Use screenutil
-            color: pressedNumber == 'backspace' ? Colors.white : Colors.blue,
+            color: pressedNumber == 'backspace' ? Colors.white : Colors.black,
           ),
           child: Center(
             child: Icon(
               Icons.backspace,
-              color: pressedNumber == 'backspace' ? Colors.blue : Colors.black,
+              color: pressedNumber == 'backspace' ? Colors.black : Colors.white,
               size: 40.sp, // Use screenutil
             ),
           ),

@@ -29,6 +29,7 @@ class ShowAmountField extends StatelessWidget {
           value: selectedCurrency,
           items: _buildCurrencyDropdownItems(),
           onChanged: onCurrencyChanged,
+
           iconSize: 35.sp, // Use screenutil for icon size
           underline: Container(),
           dropdownColor: Colors.black,
@@ -39,10 +40,10 @@ class ShowAmountField extends StatelessWidget {
         ),
         Text(
           amount,
-          style: GoogleFonts.poppins( // Apply the "Poppins" font
+          style: GoogleFonts.poppins(
+            // Apply the "Poppins" font
             textStyle: TextStyle(
               fontSize: 45.sp, // Use screenutil for font size
-              
             ),
           ),
         ),

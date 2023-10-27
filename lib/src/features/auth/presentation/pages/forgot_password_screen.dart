@@ -87,7 +87,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     }
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.amber),
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
                     minimumSize:
                         MaterialStateProperty.all(Size(double.infinity, 48.h)),
                   ),
@@ -111,7 +111,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       TextSpan(
                         text: 'Log in',
                         style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(color: Colors.amber),
+                          textStyle: const TextStyle(color: Colors.blue),
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {

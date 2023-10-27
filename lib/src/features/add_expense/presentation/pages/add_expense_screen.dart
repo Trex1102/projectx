@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../domain/entities/category_entity.dart';
 import '../widgets/add_note_textfield.dart';
+import '../widgets/category_bottom_sheet.dart';
 import '../widgets/numpad_widget.dart';
 import '../widgets/show_amount_field.dart';
-import '../../domain/entities/category_entity.dart';
-import '../widgets/category_bottom_sheet.dart';
 
 class AddExpenseScreen extends StatefulWidget {
   @override
@@ -50,7 +51,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
           children: [
             Text(
               "New Expense",
-              style: GoogleFonts.poppins( // Apply the "Poppins" font
+              style: GoogleFonts.poppins(
+                // Apply the "Poppins" font
                 textStyle: TextStyle(
                   color: Colors.white,
                   fontSize: 18.sp, // Use screenutil to adapt font size
@@ -76,7 +78,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     selectedCurrency = value!;
                   });
                 },
-              )
+              ),
             ],
           ),
           SizedBox(height: 10.h),
@@ -108,7 +110,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
               ),
               label: Text(
                 selectedCategory?.name ?? "Category",
-                style: GoogleFonts.poppins( // Apply the "Poppins" font
+                style: GoogleFonts.poppins(
+                  // Apply the "Poppins" font
                   textStyle: TextStyle(
                     color: Colors.black,
                     fontSize: 14.sp, // Use screenutil to adapt font size
@@ -139,7 +142,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                   setState(() {
                     if (amount == "0") {
                       amount = value;
-                    } else {
+                    } else if (amount.length <= 9) {
                       amount += value;
                     }
                   });
