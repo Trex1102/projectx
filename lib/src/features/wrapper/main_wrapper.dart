@@ -28,51 +28,62 @@ class _MainWrapperState extends State<MainWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.blue,
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: widget.navigationShell,
       ),
-
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-        child: GNav(
-            backgroundColor: Colors.black,
-            gap: 8.w,
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade800,
-            padding: EdgeInsets.all(16.w),
-            onTabChange: (index) {
-              setState(() {
-                selectedIndex = index;
-              });
-              _goBranch(selectedIndex);
-            },
-            tabs: [
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-                textStyle: GoogleFonts.poppins(
-                  textStyle: TextStyle(fontSize: 14.sp), 
-                ),
-              ),
-              GButton(
-                icon: Icons.pie_chart,
-                text: 'Statistics',
-                textStyle: GoogleFonts.poppins(
-                  textStyle: TextStyle(fontSize: 14.sp), 
-                ),
-              ),
-              GButton(
-                icon: Icons.settings,
-                text: 'Settings',
-                textStyle: GoogleFonts.poppins(
-                  textStyle: TextStyle(fontSize: 14.sp),
-                ),
-              )
-            ]),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.black,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: Colors.grey.withOpacity(0.1),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+            child: GNav(
+                gap: 8.w,
+                color: Colors.white,
+                activeColor: Colors.white,
+                //tabBackgroundColor: Colors.grey.shade800,
+                padding: EdgeInsets.all(16.w),
+                onTabChange: (index) {
+                  setState(() {
+                    selectedIndex = index;
+                  });
+                  _goBranch(selectedIndex);
+                },
+                tabs: [
+                  GButton(
+                    icon: Icons.home,
+                    text: 'Home',
+                    textStyle: GoogleFonts.poppins(
+                      textStyle: TextStyle(fontSize: 14.sp),
+                    ),
+                  ),
+                  GButton(
+                    icon: Icons.pie_chart,
+                    text: 'Statistics',
+                    textStyle: GoogleFonts.poppins(
+                      textStyle: TextStyle(fontSize: 14.sp),
+                    ),
+                  ),
+                  GButton(
+                    icon: Icons.settings,
+                    text: 'Settings',
+                    textStyle: GoogleFonts.poppins(
+                      textStyle: TextStyle(fontSize: 14.sp),
+                    ),
+                  )
+                ]),
+          ),
+        ),
       ),
     );
   }

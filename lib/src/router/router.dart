@@ -40,7 +40,7 @@ final router = GoRouter(
                   path: "/home",
                   name: "Home",
                   builder: (BuildContext context, GoRouterState state) =>
-                      HomeView()),
+                      const HomeView()),
             ],
           ),
 

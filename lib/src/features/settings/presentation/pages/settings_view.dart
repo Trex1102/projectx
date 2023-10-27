@@ -19,7 +19,8 @@ class _SettingsViewState extends State<SettingsView> {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      color: const Color(0xFF2F2F2F), // Use the specified background color
+      //color: const Color(0xFF2F2F2F), // Use the specified background color
+      color: Colors.black,
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -48,6 +49,7 @@ class _SettingsViewState extends State<SettingsView> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16.w),
                     color: const Color(0xFF202020),
+                    //color: Colors.grey.shade800,
                     boxShadow: const [
                       BoxShadow(
                         color: Color.fromRGBO(19, 19, 19, 0.32),
