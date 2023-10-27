@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:projectx/src/features/settings/presentation/widgets/icon_text_row.dart';
 
 class SettingsView extends StatefulWidget {
@@ -89,7 +87,7 @@ class _SettingsViewState extends State<SettingsView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 19.h),
-                      Row(),
+                      const Row(),
                       Container(
                         width: 379.w,
                         height: 0.5.h, // Height of the horizontal line
@@ -102,7 +100,7 @@ class _SettingsViewState extends State<SettingsView> {
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
                             fontSize: ScreenUtil().setSp(18),
-                            color: Color.fromRGBO(173, 173, 173, 1),
+                            color: const Color.fromRGBO(173, 173, 173, 1),
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -148,7 +146,7 @@ class _SettingsViewState extends State<SettingsView> {
                         style: GoogleFonts.rubik(
                           textStyle: TextStyle(
                             fontSize: ScreenUtil().setSp(18),
-                            color: Color.fromRGBO(173, 173, 173, 1),
+                            color: const Color.fromRGBO(173, 173, 173, 1),
                             fontWeight: FontWeight.w400,
                           ),
                         ),
